@@ -19,8 +19,11 @@
         <div class="container">
 
             @if (TempData["message"] != null)
+
             {
-                <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+                                    <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+
+
             }
 
             @RenderBody()
@@ -28,7 +31,7 @@
     </main>
 
     <footer class="py-5 bg-dark text-white text-center">
-        Shop App
+        Shop App |2021
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

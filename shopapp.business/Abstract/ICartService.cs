@@ -2,6 +2,7 @@ using shopapp.entity;
 
 namespace shopapp.business.Abstract
 {
+    //emre
     public interface ICartService
     {
         void Initializecart(string userId);
