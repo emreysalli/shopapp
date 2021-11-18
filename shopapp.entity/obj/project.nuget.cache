@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8W88KzBC5hX3iTdzgzhd22s/RFYPbBUs5zf0US2XV9zsDrITp58aMV8wS7skyUWGZTnf9aXrmXLUBl6EIncSCQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emre_\\Desktop\\WEB\\webegitimi\\eticaret\\shopapp\\shopapp.entity\\shopapp.entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emre_\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\emre_\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
