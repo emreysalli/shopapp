@@ -127,7 +127,6 @@ namespace shopapp.data.Concrete.EfCore
                     ProductId = entity.ProductId,
                     CategoryId = catid
                 }).ToList();
-                context.SaveChanges();
             }
 
 

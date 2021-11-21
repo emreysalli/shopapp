@@ -18,7 +18,6 @@ namespace shopapp.data.Concrete.EfCore
         {
 
             context.Set<TEntity>().Add(entity);
-            context.SaveChanges();
 
         }
 
@@ -26,8 +25,6 @@ namespace shopapp.data.Concrete.EfCore
         {
 
             context.Set<TEntity>().Remove(entity);
-            context.SaveChanges();
-
         }
 
         public List<TEntity> GetAll()
@@ -48,7 +45,6 @@ namespace shopapp.data.Concrete.EfCore
         {
 
             context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
 
         }
     }

@@ -38,7 +38,6 @@ namespace shopapp.data.Concrete.EfCore
         {
 
             ShopContext.Carts.Update(entity);
-            ShopContext.SaveChanges();
 
         }
     }

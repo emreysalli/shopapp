@@ -7,20 +7,21 @@ namespace shopapp.business.Concrete
 {
     public class OrderManager : IOrderService
     {
-        private IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitofwork;
 
-        public OrderManager(IOrderRepository orderRepository)
+        public OrderManager(IUnitOfWork unitofwork)
         {
-            _orderRepository = orderRepository;
+            _unitofwork = unitofwork;
         }
         public void Create(Order order)
         {
-            _orderRepository.Create(order);
+            _unitofwork.Orders.Create(order);
+            _unitofwork.Save();
         }
 
         public List<Order> GetOrders(string userId)
         {
-            return _orderRepository.GetOrders(userId);
+            return _unitofwork.Orders.GetOrders(userId);
         }
     }
 }

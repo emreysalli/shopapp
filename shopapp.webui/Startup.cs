@@ -77,18 +77,20 @@ namespace shopapp.webui
 
             });
             //category
-            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+            //services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
             services.AddScoped<ICategoryService, CategoryManager>();
 
-            services.AddScoped<ICartRepository, EfCoreCartRepository>();
+            //services.AddScoped<ICartRepository, EfCoreCartRepository>();
             services.AddScoped<ICartService, CartManager>();
 
             //product
-            services.AddScoped<IProductRepository, EfCoreProductRepoistory>();
+            //services.AddScoped<IProductRepository, EfCoreProductRepoistory>();
             services.AddScoped<IProductService, ProductManager>();
 
-            services.AddScoped<IOrderRepository, EfCoreOrderRepository>();
+            //services.AddScoped<IOrderRepository, EfCoreOrderRepository>();
             services.AddScoped<IOrderService, OrderManager>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IEmailSender, SmtpEmailSender>(i =>
             new SmtpEmailSender(
