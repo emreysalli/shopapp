@@ -13,7 +13,10 @@ namespace shopapp.data.Concrete.EfCore
         {
 
         }
-        private ShopContext ShopContext;
+        private ShopContext ShopContext
+        {
+            get { return context as ShopContext; }
+        }
         public List<Order> GetOrders(string userId)
         {
 

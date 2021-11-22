@@ -107,7 +107,7 @@ namespace shopapp.webui
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             app.UseStaticFiles(); //wwwroot altındaki dosyalara açılıyor
             app.UseStaticFiles(new StaticFileOptions
@@ -118,7 +118,6 @@ namespace shopapp.webui
             });
             if (env.IsDevelopment())
             {
-                SeedDatabase.Seed();
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
@@ -220,6 +219,8 @@ namespace shopapp.webui
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
             });
+
+            SeedIdentity.Seed(userManager, roleManager, configuration).Wait();
         }
     }
 }

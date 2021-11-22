@@ -12,7 +12,10 @@ namespace shopapp.data.Concrete.EfCore
         {
 
         }
-        private ShopContext ShopContext;
+        private ShopContext ShopContext
+        {
+            get { return context as ShopContext; }
+        }
         public void DeleteFromCategory(int productId, int categoryId)
         {
 

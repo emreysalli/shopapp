@@ -11,18 +11,18 @@ namespace shopapp.data.Concrete.EfCore
         {
 
         }
-        private ShopContext ShopContext;
+        private ShopContext ShopContext
+        {
+            get { return context as ShopContext; }
+        }
         public void ClearCart(int cartId)
         {
-
-
             var cmd = @"delete from CartItems where CartId=@p0";
             ShopContext.Database.ExecuteSqlRaw(cmd, cartId);
         }
 
         public void DeleteFromCart(int cartId, int productId)
         {
-
             var cmd = @"delete from CartItems where CartId=@p0 and ProductId=@p1";
             ShopContext.Database.ExecuteSqlRaw(cmd, cartId, productId);
 

@@ -9,8 +9,8 @@ using shopapp.data.Concrete.EfCore;
 namespace shopapp.data.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20211118215745_UpdateOrder2Entities")]
-    partial class UpdateOrder2Entities
+    [Migration("20211122093851_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,7 +63,9 @@ namespace shopapp.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
@@ -71,6 +73,32 @@ namespace shopapp.data.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Name = "Telefon",
+                            Url = "telefon"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            Name = "Bilgisayar",
+                            Url = "bilgisayar"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            Name = "Tablet",
+                            Url = "tablet"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            Name = "Beyaz Eşya",
+                            Url = "beyaz-esya"
+                        });
                 });
 
             modelBuilder.Entity("shopapp.entity.Order", b =>
@@ -172,7 +200,9 @@ namespace shopapp.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(100);
 
                     b.Property<double?>("Price")
                         .HasColumnType("REAL");
@@ -183,6 +213,74 @@ namespace shopapp.data.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "1.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Samsung s21",
+                            Price = 10000.0,
+                            Url = "samsung-s21"
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "2.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Samsung s22",
+                            Price = 11000.0,
+                            Url = "samsung-s22"
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "3.jpg",
+                            IsApproved = false,
+                            IsHome = false,
+                            Name = "Samsung s23",
+                            Price = 12000.0,
+                            Url = "samsung-s23"
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "4.jpg",
+                            IsApproved = false,
+                            IsHome = false,
+                            Name = "Samsung s24",
+                            Price = 13000.0,
+                            Url = "samsung-s24"
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "5.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Samsung s25",
+                            Price = 14000.0,
+                            Url = "samsung-s25"
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            Description = "çok iyi telefon",
+                            ImageUrl = "6.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Samsung s26",
+                            Price = 15000.0,
+                            Url = "samsung-s26"
+                        });
                 });
 
             modelBuilder.Entity("shopapp.entity.ProductCategory", b =>
@@ -198,6 +296,38 @@ namespace shopapp.data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            CategoryId = 1,
+                            ProductId = 6
+                        });
                 });
 
             modelBuilder.Entity("shopapp.entity.CartItem", b =>
